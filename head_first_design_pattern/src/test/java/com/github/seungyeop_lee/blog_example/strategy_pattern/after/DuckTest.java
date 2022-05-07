@@ -1,7 +1,5 @@
 package com.github.seungyeop_lee.blog_example.strategy_pattern.after;
 
-import com.github.seungyeop_lee.blog_example.strategy_pattern.after.fly_behavior.FlyWithWings;
-import com.github.seungyeop_lee.blog_example.strategy_pattern.after.quack_behavior.Quack;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -57,8 +55,8 @@ class DuckTest {
     public void changeBehaviorTest() {
         RubberDuck rubberDuck = new RubberDuck();
 
-        rubberDuck.setQuackBehavior(new Quack());
-        rubberDuck.setFlyBehavior(new FlyWithWings());
+        rubberDuck.setQuackBehavior(new QuackBehavior.Quack());
+        rubberDuck.setFlyBehavior(new FlyBehavior.FlyWithWings());
 
         Assertions.assertThat(rubberDuck.quack()).isEqualTo(QuackResultConst.quack);
         Assertions.assertThat(rubberDuck.fly()).isEqualTo(FlyResultConst.flyWithWings);

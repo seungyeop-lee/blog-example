@@ -1,8 +1,5 @@
 package com.github.seungyeop_lee.blog_example.strategy_pattern.after;
 
-import com.github.seungyeop_lee.blog_example.strategy_pattern.after.fly_behavior.FlyBehavior;
-import com.github.seungyeop_lee.blog_example.strategy_pattern.after.quack_behavior.QuackBehavior;
-
 abstract class Duck {
     QuackBehavior quackBehavior;
     FlyBehavior flyBehavior;
