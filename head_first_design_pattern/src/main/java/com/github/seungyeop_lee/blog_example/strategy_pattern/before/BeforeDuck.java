@@ -1,6 +1,8 @@
 package com.github.seungyeop_lee.blog_example.strategy_pattern.before;
 
-abstract class Duck {
+import com.github.seungyeop_lee.blog_example.strategy_pattern.common.Duck;
+
+public abstract class BeforeDuck implements Duck {
     public String quack() {
         return "꽥꽥";
     }

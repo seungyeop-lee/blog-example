@@ -1,7 +1,7 @@
 package com.github.seungyeop_lee.blog_example.strategy_pattern.after;
 
-class RedheadDuck extends Duck {
-    public RedheadDuck() {
+public class RedheadAfterDuck extends AfterDuck {
+    public RedheadAfterDuck() {
         quackBehavior = new QuackBehavior.Quack();
         flyBehavior = new FlyBehavior.FlyWithWings();
     }

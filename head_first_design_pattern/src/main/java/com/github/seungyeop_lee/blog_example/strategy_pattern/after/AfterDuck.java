@@ -1,6 +1,8 @@
 package com.github.seungyeop_lee.blog_example.strategy_pattern.after;
 
-abstract class Duck {
+import com.github.seungyeop_lee.blog_example.strategy_pattern.common.Duck;
+
+public abstract class AfterDuck implements Duck {
     QuackBehavior quackBehavior;
     FlyBehavior flyBehavior;
 

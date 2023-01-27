@@ -1,13 +1,13 @@
 package com.github.seungyeop_lee.blog_example.strategy_pattern.after;
 
-class DecoyDuck extends Duck {
-    public DecoyDuck() {
-        quackBehavior = new QuackBehavior.MuteQuack();
+public class RubberAfterDuck extends AfterDuck {
+    public RubberAfterDuck() {
+        quackBehavior = new QuackBehavior.Squeak();
         flyBehavior = new FlyBehavior.FlyNoWay();
     }
 
     @Override
     public String display() {
-        return "가짜 오리 모습";
+        return "고무오리 모습";
     }
 }

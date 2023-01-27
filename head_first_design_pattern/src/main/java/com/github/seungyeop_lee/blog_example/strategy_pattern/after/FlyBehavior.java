@@ -1,6 +1,6 @@
 package com.github.seungyeop_lee.blog_example.strategy_pattern.after;
 
-interface FlyBehavior {
+public interface FlyBehavior {
     String fly();
 
     class FlyNoWay implements FlyBehavior {

@@ -1,9 +1,9 @@
 package com.github.seungyeop_lee.blog_example.strategy_pattern.before;
 
-class DecoyDuck extends Duck {
+public class RubberBeforeDuck extends BeforeDuck {
     @Override
     public String quack() {
-        return "";
+        return "삑삑";
     }
 
     @Override
@@ -13,6 +13,6 @@ class DecoyDuck extends Duck {
 
     @Override
     public String display() {
-        return "가짜 오리 모습";
+        return "고무오리 모습";
     }
 }

@@ -1,6 +1,6 @@
 package com.github.seungyeop_lee.blog_example.strategy_pattern.after;
 
-interface QuackBehavior {
+public interface QuackBehavior {
     String quack();
 
     class MuteQuack implements QuackBehavior {
