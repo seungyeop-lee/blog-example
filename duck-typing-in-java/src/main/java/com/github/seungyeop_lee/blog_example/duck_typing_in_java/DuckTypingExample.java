@@ -4,26 +4,18 @@ import static java.lang.Thread.sleep;
 
 public class DuckTypingExample {
     public static void main(String[] args) throws InterruptedException {
-        new Thread(new RunnableImpl()).start();
-        new Thread(new MethodReferenceExample()::method).start();
-        new Thread(MethodReferenceExample::staticMethod).start();
+        new Thread(new MethodReferencesExample()::method).start();
+        new Thread(MethodReferencesExample::staticMethod).start();
         sleep(100);
     }
 
-    private static class RunnableImpl implements Runnable {
-        @Override
-        public void run() {
-            System.out.println("RunnableImpl.run");
-        }
-    }
-
-    private static class MethodReferenceExample {
+    private static class MethodReferencesExample {
         public void method() {
-            System.out.println("MethodReferenceExample.method");
+            System.out.println("MethodReferencesExample.method");
         }
 
         public static void staticMethod() {
-            System.out.println("MethodReferenceExample.staticMethod");
+            System.out.println("MethodReferencesExample.staticMethod");
         }
     }
 }
