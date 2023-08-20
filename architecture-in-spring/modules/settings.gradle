@@ -1,3 +1,4 @@
 rootProject.name = 'architecture-in-spring'
 
 include 'mapbase-with-mybatis'
+include 'simple-with-mybatis'
