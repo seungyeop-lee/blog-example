@@ -1,0 +1,134 @@
+openapi: 3.0.3
+info:
+  title: 아키텍처 예제 API 정의
+  version: 0.0.1
+tags:
+  - name: Book
+    description: 책 관리
+servers:
+  - url: http://localhost:8080
+    description: 로컬 테스트 서버
+paths:
+  /createBook:
+    post:
+      tags:
+        - Book
+      summary: EXAM001
+      description: 책 정보를 생성한다.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Book"
+            examples:
+              testdata:
+                summary: 단순 테스트 예제
+                value:
+                  title: "테스트 제목"
+                  isbn: "1234567890123"
+                  publishedDate: "2023-08-20"
+      responses:
+        200:
+          description: 정상 동작
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/CommonResponse"
+                  - $ref: "#/components/schemas/Book"
+              examples:
+                success:
+                  $ref: "#/components/examples/success"
+                requiredEmpty:
+                  $ref: "#/components/examples/requiredEmpty"
+                notFound:
+                  summary: ISBN 중복 등록
+                  value:
+                    resultCode: "0002"
+                    resultMessage: 동일한 ISBN으로 등록 된 책이 있습니다.
+  /readBook:
+    post:
+      tags:
+        - Book
+      summary: EXAM002
+      description: ID로 책 데이터를 조회한다.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bookId:
+                  type: integer
+              required:
+                - bookId
+      responses:
+        200:
+          description: 정상 동작
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/CommonResponse"
+                  - $ref: "#/components/schemas/Book"
+              examples:
+                success:
+                  $ref: "#/components/examples/success"
+                requiredEmpty:
+                  $ref: "#/components/examples/requiredEmpty"
+                notFound:
+                  summary: 없는 ID 조회
+                  value:
+                    resultCode: "0003"
+                    resultMessage: 해당 ID는 등록되지 않았습니다.
+components:
+  schemas:
+    CommonResponse:
+      type: object
+      properties:
+        resultCode:
+          type: string
+          description: 결과 코드
+        resultMessage:
+          type: string
+          description: 결과 메세지
+      required:
+        - resultCode
+        - resultMessage
+    Book:
+      type: object
+      properties:
+        bookId:
+          type: integer
+          description: 책 ID
+          readOnly: true
+        title:
+          type: string
+          description: 책 제목
+        isbn:
+          type: string
+          description: 책 ISBN
+        publishedDate:
+          type: string
+          description: 출판일
+          format: date
+      required:
+        - bookId
+        - title
+        - isbn
+        - publishedDate
+  examples:
+    success:
+      summary: 정상 처리
+      value:
+        resultCode: "0000"
+        resultMessage: 정상 처리 되었습니다.
+        bookId: 1
+        title: "테스트 제목"
+        isbn: "1234567890123"
+        publishedDate: "2023-08-20"
+    requiredEmpty:
+      summary: 필수 값 누락
+      value:
+        resultCode: "0001"
+        resultMessage: 필수 값이 누락되었습니다.
