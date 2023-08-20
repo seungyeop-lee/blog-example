@@ -1,0 +1,17 @@
+### 책 생성
+POST http://localhost:8080/createBook
+Content-Type: application/json
+
+{
+  "title": "테스트 제목",
+  "isbn": "1234567890123",
+  "publishedDate": "2023-08-20"
+}
+
+### 책 조회
+POST http://localhost:8080/readBook
+Content-Type: application/json
+
+{
+  "bookId": 1
+}
