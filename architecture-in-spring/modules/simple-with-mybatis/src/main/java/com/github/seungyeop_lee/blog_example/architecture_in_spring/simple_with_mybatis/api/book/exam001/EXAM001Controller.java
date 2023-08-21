@@ -2,7 +2,6 @@ package com.github.seungyeop_lee.blog_example.architecture_in_spring.simple_with
 
 import com.github.seungyeop_lee.blog_example.architecture_in_spring.simple_with_mybatis.api.common.exception.RequiredValueException;
 import com.github.seungyeop_lee.blog_example.architecture_in_spring.simple_with_mybatis.api.common.response.BaseApiResponse;
-import com.github.seungyeop_lee.blog_example.architecture_in_spring.simple_with_mybatis.entity.Book;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -49,12 +48,17 @@ public class EXAM001Controller {
         private String isbn;
         private LocalDate publishedDate;
 
-        public static Response from(Book book) {
+        public static Response of(
+                Long bookId,
+                String title,
+                String isbn,
+                LocalDate publishedDate
+        ) {
             Response response = new Response();
-            response.bookId = book.getBookId();
-            response.title = book.getTitle();
-            response.isbn = book.getIsbn();
-            response.publishedDate = book.getPublishedDate();
+            response.bookId = bookId;
+            response.title = title;
+            response.isbn = isbn;
+            response.publishedDate = publishedDate;
             response.markOk();
             return response;
         }

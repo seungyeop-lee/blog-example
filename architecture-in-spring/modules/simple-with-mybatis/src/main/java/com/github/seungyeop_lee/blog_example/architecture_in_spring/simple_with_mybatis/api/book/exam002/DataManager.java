@@ -17,6 +17,11 @@ class DataManager {
     }
 
     public EXAM002Controller.Response buildResponse() {
-        return EXAM002Controller.Response.from(book);
+        return EXAM002Controller.Response.of(
+                book.getBookId(),
+                book.getTitle(),
+                book.getIsbn(),
+                book.getPublishedDate()
+        );
     }
 }
