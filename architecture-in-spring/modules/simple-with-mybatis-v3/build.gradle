@@ -1,0 +1,37 @@
+plugins {
+    id "com.qqviaja.gradle.MybatisGenerator" version "2.5"
+}
+
+configurations {
+    mybatisGenerator
+}
+
+mybatisGenerator {
+    verbose = true
+    configFile = 'src/main/resources/generatorConfig.xml'
+
+    dependencies {
+        mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.4.2'
+        mybatisGenerator 'org.mariadb.jdbc:mariadb-java-client'
+    }
+}
+
+dependencies {
+    // spring web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // spring data jdbc
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
+    // mariadb client
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
+    // mybatis
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
+    testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.2'
+}
