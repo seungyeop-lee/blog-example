@@ -1,0 +1,1 @@
+INSERT book (TITLE, ISBN, PUBLISHED_DATE, CREATED_AT) values ('더미제목', '123456789', '2023-01-01', now())
