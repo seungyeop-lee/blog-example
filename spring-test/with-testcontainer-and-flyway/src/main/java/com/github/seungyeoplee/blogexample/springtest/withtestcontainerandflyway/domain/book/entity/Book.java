@@ -19,6 +19,7 @@ public class Book {
 
     private String title;
 
+    @Column(unique = true)
     private String isbn;
 
     private LocalDate publishedDate;

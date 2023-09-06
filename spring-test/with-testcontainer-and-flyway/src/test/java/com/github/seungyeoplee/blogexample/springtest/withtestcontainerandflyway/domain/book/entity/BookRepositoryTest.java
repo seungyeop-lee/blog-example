@@ -1,10 +1,9 @@
 package com.github.seungyeoplee.blogexample.springtest.withtestcontainerandflyway.domain.book.entity;
 
+import com.github.seungyeoplee.blogexample.springtest.withtestcontainerandflyway.IntegrationTestSupport;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -12,10 +11,8 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Transactional
-@Testcontainers
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-class BookRepositoryTest {
-    
+class BookRepositoryTest extends IntegrationTestSupport {
+
     @Autowired
     private BookRepository bookRepository;
 

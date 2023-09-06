@@ -1,20 +1,17 @@
 package com.github.seungyeoplee.blogexample.springtest.withtestcontainerandflyway.api.book;
 
+import com.github.seungyeoplee.blogexample.springtest.withtestcontainerandflyway.IntegrationTestSupport;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Testcontainers
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class BookApiTest {
+class BookApiTest extends IntegrationTestSupport {
 
     @Autowired
     TestRestTemplate rest;

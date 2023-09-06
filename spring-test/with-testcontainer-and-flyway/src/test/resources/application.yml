@@ -3,7 +3,3 @@ spring:
     locations:
       - classpath:db/migration
       - classpath:db/testdummy
-  datasource:
-    url: jdbc:tc:mariadb:10.10:///example?TC_MY_CNF=db/conf
-    username: user
-    password: userPw
