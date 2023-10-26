@@ -6,8 +6,8 @@ import org.testcontainers.containers.MariaDBContainer;
 
 import java.util.Map;
 
-@SpringBootTest
-public abstract class IntegrationTestSupport {
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public abstract class ApiTestSupport {
 
     @ServiceConnection
     protected static final MariaDBContainer mariaDBContainer = new MariaDBContainer<>("mariadb:10.10")

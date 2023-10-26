@@ -1,6 +1,6 @@
 package com.github.seungyeoplee.blogexample.springtest.withtestcontainerandflyway.api.book;
 
-import com.github.seungyeoplee.blogexample.springtest.withtestcontainerandflyway.IntegrationTestSupport;
+import com.github.seungyeoplee.blogexample.springtest.withtestcontainerandflyway.ApiTestSupport;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class BookApiTest extends IntegrationTestSupport {
+class BookApiTest extends ApiTestSupport {
 
     @Autowired
     TestRestTemplate rest;
