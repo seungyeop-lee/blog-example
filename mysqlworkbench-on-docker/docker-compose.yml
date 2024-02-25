@@ -1,6 +1,18 @@
 version: '3.8'
 
 services:
+  mysql:
+    image: mysql:8.3
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "rootPw"
+      TZ: "Asia/Seoul"
+    volumes:
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+      - db-data:/var/lib/mysql
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
   mysql-workbench:
     image: mysql-workbench:latest
     build:
@@ -12,7 +24,7 @@ services:
       - PGID=1000
       - TZ=Asia/Seoul
     volumes:
-      - ./config:/config
+      - ./workbench/config:/config:shared
     ports:
       - "3000:3000"
       - "3001:3001"
@@ -20,3 +32,6 @@ services:
       - IPC_LOCK
     restart: unless-stopped
     platform: linux/amd64
+
+volumes:
+  db-data: {}
