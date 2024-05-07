@@ -1,0 +1,12 @@
+{
+  "name": "my-module",
+  "sdk": "go",
+  "dependencies": [
+    {
+      "name": "ssh",
+      "source": "github.com/seungyeop-lee/daggerverse/ssh@d46f06f21d7e617404c7262beb5639603495a484"
+    }
+  ],
+  "source": ".",
+  "engineVersion": "v0.11.2"
+}

@@ -1,0 +1,8 @@
+services:
+  sshd:
+    image: sshd-alpine:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "22:22"
